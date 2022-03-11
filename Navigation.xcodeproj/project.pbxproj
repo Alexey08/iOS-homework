@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4308C8027D13AF800F2A643 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4308C7F27D13AF800F2A643 /* ProfileHeaderView.swift */; };
 		C462D47B27BFF34400AEE561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C462D47A27BFF34400AEE561 /* AppDelegate.swift */; };
 		C462D47D27BFF34400AEE561 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C462D47C27BFF34400AEE561 /* SceneDelegate.swift */; };
 		C462D48427BFF34500AEE561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C462D48327BFF34500AEE561 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C4308C7F27D13AF800F2A643 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		C462D47727BFF34400AEE561 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C462D47A27BFF34400AEE561 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C462D47C27BFF34400AEE561 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4308C7C27D13A4500F2A643 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C462D48E27BFF4B300AEE561 /* ProfileViewController.swift */,
+				C4308C7F27D13AF800F2A643 /* ProfileHeaderView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		C462D46E27BFF34400AEE561 = {
 			isa = PBXGroup;
 			children = (
@@ -65,7 +76,7 @@
 				C462D48327BFF34500AEE561 /* Assets.xcassets */,
 				C462D48527BFF34500AEE561 /* LaunchScreen.storyboard */,
 				C462D48827BFF34500AEE561 /* Info.plist */,
-				C462D48E27BFF4B300AEE561 /* ProfileViewController.swift */,
+				C4308C7C27D13A4500F2A643 /* Profile */,
 				C462D49027BFF4C300AEE561 /* FeedViewController.swift */,
 				C462D49227C00ACE00AEE561 /* PostViewController.swift */,
 				C4E7719C27CD490300BE86B4 /* InfoViewController.swift */,
@@ -147,6 +158,7 @@
 				C462D47B27BFF34400AEE561 /* AppDelegate.swift in Sources */,
 				C462D49127BFF4C300AEE561 /* FeedViewController.swift in Sources */,
 				C462D48F27BFF4B300AEE561 /* ProfileViewController.swift in Sources */,
+				C4308C8027D13AF800F2A643 /* ProfileHeaderView.swift in Sources */,
 				C4E7719D27CD490300BE86B4 /* InfoViewController.swift in Sources */,
 				C462D47D27BFF34400AEE561 /* SceneDelegate.swift in Sources */,
 			);
@@ -294,7 +306,7 @@
 				INFOPLIST_FILE = Navigation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -323,7 +335,7 @@
 				INFOPLIST_FILE = Navigation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

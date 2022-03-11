@@ -27,7 +27,6 @@ class InfoViewController: UIViewController {
         buttonPressMe.addTarget(self, action: #selector(showAllert), for: .touchUpInside)
         
         view.addSubview(buttonPressMe)
-                
     }
     
     @objc func showAllert() {
@@ -48,5 +47,4 @@ class InfoViewController: UIViewController {
 
         self.present(alertVC, animated: true, completion: nil)
     }
-    
 }

@@ -9,8 +9,6 @@ import UIKit
 
 class FeedViewController: UIViewController {
         
-    let postVC = PostViewController()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,18 +21,13 @@ class FeedViewController: UIViewController {
         buttonPost.addTarget(self, action: #selector(tap), for: .touchUpInside)
         
         view.addSubview(buttonPost)
-                
     }
     
     @objc func tap() {
-        
         let post = Post(title: "New Post!")
-        
         let postVC = PostViewController()
         postVC.post = post
         
         self.navigationController?.pushViewController(postVC, animated: true)
-        
     }
-    
 }

@@ -27,16 +27,12 @@ class PostViewController: UIViewController {
         let infoBarButtonItem = UIBarButtonItem(title: "Info", style: .plain, target: self, action: #selector(info))
             
         self.navigationItem.rightBarButtonItem = infoBarButtonItem
-                
     }
     
     @objc func info() {
-        
         let infoVC = InfoViewController()
         let infoNavC = UINavigationController(rootViewController: infoVC)
         
         self.present(infoNavC, animated: true, completion: nil)
-        
     }
-        
 }
