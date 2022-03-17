@@ -43,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C41DDE4F27E390E90015C887 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				C462D49027BFF4C300AEE561 /* FeedViewController.swift */,
+				C462D49227C00ACE00AEE561 /* PostViewController.swift */,
+				C4E7719C27CD490300BE86B4 /* InfoViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		C4308C7C27D13A4500F2A643 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,10 +86,8 @@
 				C462D48327BFF34500AEE561 /* Assets.xcassets */,
 				C462D48527BFF34500AEE561 /* LaunchScreen.storyboard */,
 				C462D48827BFF34500AEE561 /* Info.plist */,
+				C41DDE4F27E390E90015C887 /* Feed */,
 				C4308C7C27D13A4500F2A643 /* Profile */,
-				C462D49027BFF4C300AEE561 /* FeedViewController.swift */,
-				C462D49227C00ACE00AEE561 /* PostViewController.swift */,
-				C4E7719C27CD490300BE86B4 /* InfoViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";

@@ -21,13 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarControler.tabBar.backgroundColor = UIColor.systemGray6
 
         let profileVC = ProfileViewController()
-//        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "user1"), selectedImage: UIImage(named: "user2"))
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: .add, tag: 0)
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
         let profileNavC = UINavigationController(rootViewController: profileVC)
         
         let feedVC = FeedViewController()
-//        feedVC.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(named: "home1"), selectedImage: UIImage(named: "home2"))
-        feedVC.tabBarItem = UITabBarItem(title: "Feed", image: .remove, tag: 1)
+        feedVC.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "newspaper"), selectedImage: UIImage(systemName: "newspaper.fill"))
         let feedNavC = UINavigationController(rootViewController: feedVC)
         
         let appearance = UINavigationBarAppearance()
