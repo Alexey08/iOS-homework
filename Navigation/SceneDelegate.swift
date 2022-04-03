@@ -20,9 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarControler = UITabBarController()
         tabBarControler.tabBar.backgroundColor = UIColor.systemGray6
 
-        let profileVC = ProfileViewController()
+        let profileVC = LogInViewController()
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
         let profileNavC = UINavigationController(rootViewController: profileVC)
+        profileNavC.navigationBar.isHidden = true
         
         let feedVC = FeedViewController()
         feedVC.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "newspaper"), selectedImage: UIImage(systemName: "newspaper.fill"))

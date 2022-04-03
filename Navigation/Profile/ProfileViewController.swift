@@ -28,24 +28,32 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = .lightGray
         title = "Profile"
         
+        // для скрытия клавиатуры
+        self.hideKeyboardWhenTappedAround()
+        
         // добавляем profileHeaderView
         self.view.addSubview(profileHeaderView)
         
         // добавляем кнопку
         self.view.addSubview(clickButton)
         
-        // закрепляем profileHeaderView
         profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
-        profileHeaderView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        profileHeaderView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        profileHeaderView.heightAnchor.constraint(equalToConstant: 220).isActive = true
         
-        // закрепляем кнопку
-        clickButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        clickButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        clickButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        clickButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        NSLayoutConstraint.activate([
+            // закрепляем profileHeaderView
+            profileHeaderView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            profileHeaderView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            profileHeaderView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            profileHeaderView.heightAnchor.constraint(equalToConstant: 220),
+            
+            // закрепляем кнопку
+            clickButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            clickButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            clickButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            clickButton.heightAnchor.constraint(equalToConstant: 50),
+        ])
+        
+
     }
     
     @objc func pressMe () {

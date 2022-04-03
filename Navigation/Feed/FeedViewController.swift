@@ -56,11 +56,13 @@ class FeedViewController: UIViewController {
         self.view.addSubview(stackFeed)
         
         // закрепляем stackFeed
-        stackFeed.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        stackFeed.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        stackFeed.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-        stackFeed.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor).isActive = true
-    }
+        NSLayoutConstraint.activate([
+            stackFeed.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            stackFeed.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            stackFeed.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor),
+            stackFeed.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor),
+        ])
+            }
     
     @objc func tap() {
         let post = Post(title: "New Post!")
