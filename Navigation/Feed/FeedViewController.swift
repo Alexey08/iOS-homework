@@ -65,7 +65,7 @@ class FeedViewController: UIViewController {
             }
     
     @objc func tap() {
-        let post = Post(title: "New Post!")
+        let post = FeedPost(title: "New Post!")
         let postVC = PostViewController()
         postVC.post = post
 

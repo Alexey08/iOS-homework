@@ -2,12 +2,12 @@
 //  ProfileHeaderView.swift
 //  Navigation
 //
-//  Created by Алексей Уланов on 03.03.2022.
+//  Created by Алексей Уланов on 30.05.2022.
 //
 
 import UIKit
 
-class ProfileHeaderView: UIView {
+class ProfileHeaderView: UITableViewHeaderFooterView {
     
     // создаем элеметы view
         
@@ -79,8 +79,11 @@ class ProfileHeaderView: UIView {
     
     private var statusText = String()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
         
         // добавляем элементы view
         self.addSubview(avatarImege)

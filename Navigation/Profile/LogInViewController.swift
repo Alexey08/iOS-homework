@@ -81,13 +81,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Log In", for: .normal)
-        button.setBackgroundImage(UIImage.init(named: "blue_pixel"), for: .normal)
+        button.backgroundColor = UIColor(named: "colorSet")
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         button.clipsToBounds = true
-        button.alpha = 0.1
         return button
     }()
     

@@ -7,8 +7,9 @@
 
 import UIKit
 
-// Put this piece of code anywhere you like
 extension UIViewController {
+    
+    // Функция скрытия клавиатуры
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -18,4 +19,10 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+}
+
+extension UIView {
+    
+    // Индификатор файла
+    static let indenifier = String(describing: self)
 }
