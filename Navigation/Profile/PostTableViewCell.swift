@@ -9,11 +9,7 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        layout()
-    }
-
+    // добавляем элементы
     private var postTitle: UILabel = {
         let lable = UILabel()
         lable.translatesAutoresizingMaskIntoConstraints = false
@@ -26,7 +22,7 @@ class PostTableViewCell: UITableViewCell {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .black
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         return image
     }()
 
@@ -55,6 +51,7 @@ class PostTableViewCell: UITableViewCell {
         return lable
     }()
 
+    // заполняем Post
     public func setupCell(post: Post) {
         self.postTitle.text = post.author
         self.postDescription.text = post.description
@@ -62,15 +59,28 @@ class PostTableViewCell: UITableViewCell {
         self.postLikes.text = "Likes: \(post.likes)"
         self.postViews.text = "Views: \(post.views)"
     }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-    private func layout() {
-        
+        // добавляем элементы
         contentView.addSubview(postTitle)
         contentView.addSubview(postImage)
         contentView.addSubview(postDescription)
         contentView.addSubview(postLikes)
         contentView.addSubview(postViews)
-
+        
+        // добавляем констрайнты
+        addConstraint()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+        
+    // добавляем констрайнты
+    private func addConstraint() {
+        
         NSLayoutConstraint.activate([
 
             contentView.widthAnchor.constraint(equalTo: self.widthAnchor),
@@ -97,10 +107,6 @@ class PostTableViewCell: UITableViewCell {
         ])
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
     }

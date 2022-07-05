@@ -47,7 +47,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor.systemGray6
         title = "Feed"
                 
         // наполняем stackFeed и добавляем на экран

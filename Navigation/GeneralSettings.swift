@@ -24,5 +24,7 @@ extension UIViewController {
 extension UIView {
     
     // Индификатор файла
-    static let indenifier = String(describing: self)
+    static var indenifier: String {
+        String(describing: self)
+    }
 }

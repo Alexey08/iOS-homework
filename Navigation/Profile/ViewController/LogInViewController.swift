@@ -9,7 +9,7 @@ import UIKit
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
-    //создаем элементы
+    // создаем элементы
     let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -103,10 +103,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         contentView.addSubview(button)
         scrollView.addSubview(contentView)
         self.view.addSubview(scrollView)
-                
+        
+        // расставляем элементы
+        addConstraint()
+        
         // для скрытия клавиатуры
-        self.hideKeyboardWhenTappedAround()
-
+        hideKeyboardWhenTappedAround()
+    }
+    
+    private func addConstraint() {
+        
         // расставляем элементы
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
@@ -134,10 +140,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             button.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
-            button.heightAnchor.constraint(equalToConstant: 50),            
+            button.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
-
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -145,6 +150,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(kbdShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         nc.addObserver(self, selector: #selector(kbdHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        // настраиваем ТабБар и Нав.контроллер
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -155,7 +164,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         nc.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
  
-    // Изменение отступов при появлении клавиатуры
+    // изменение отступов при появлении клавиатуры
     @objc
     private func kbdShow(notification: NSNotification) {
         if let kbdSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
@@ -164,7 +173,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // Обнуляем отступы
+    // обнуляем отступы
     @objc
     private func kbdHide(notification: NSNotification) {
         scrollView.contentInset.bottom = .zero

@@ -65,10 +65,10 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Show status", for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = UIColor(named: "colorSet")
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        button.layer.cornerRadius = 4
+        button.layer.cornerRadius = 10
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowRadius = 4
@@ -94,6 +94,10 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         
         //расставляем элеметы view
         NSLayoutConstraint.activate([
+            
+            self.widthAnchor.constraint(equalTo: self.widthAnchor),
+            self.heightAnchor.constraint(equalToConstant: 220),
+            
             // аватарка
             avatarImege.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             avatarImege.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -123,15 +127,13 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
             showStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             showStatusButton.topAnchor.constraint(equalTo: avatarImege.bottomAnchor, constant: 16),
             showStatusButton.heightAnchor.constraint(equalToConstant: 50),
-        ])
-        
+        ])        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+        
     // логика showStatusButton
     @objc func buttonPressed() {
         statusLabel.text = statusText
