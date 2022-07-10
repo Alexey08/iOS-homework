@@ -2,12 +2,12 @@
 //  ProfileHeaderView.swift
 //  Navigation
 //
-//  Created by Алексей Уланов on 03.03.2022.
+//  Created by Алексей Уланов on 30.05.2022.
 //
 
 import UIKit
 
-class ProfileHeaderView: UIView {
+class ProfileHeaderView: UITableViewHeaderFooterView {
     
     // создаем элеметы view
         
@@ -65,10 +65,10 @@ class ProfileHeaderView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Show status", for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = UIColor(named: "ColorSet")
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        button.layer.cornerRadius = 4
+        button.layer.cornerRadius = 10
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowRadius = 4
@@ -79,8 +79,11 @@ class ProfileHeaderView: UIView {
     
     private var statusText = String()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
         
         // добавляем элементы view
         self.addSubview(avatarImege)
@@ -91,6 +94,10 @@ class ProfileHeaderView: UIView {
         
         //расставляем элеметы view
         NSLayoutConstraint.activate([
+            
+            self.widthAnchor.constraint(equalTo: self.widthAnchor),
+            self.heightAnchor.constraint(equalToConstant: 220),
+            
             // аватарка
             avatarImege.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             avatarImege.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -120,15 +127,13 @@ class ProfileHeaderView: UIView {
             showStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             showStatusButton.topAnchor.constraint(equalTo: avatarImege.bottomAnchor, constant: 16),
             showStatusButton.heightAnchor.constraint(equalToConstant: 50),
-        ])
-        
+        ])        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+        
     // логика showStatusButton
     @objc func buttonPressed() {
         statusLabel.text = statusText
