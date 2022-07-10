@@ -111,12 +111,14 @@ extension ProfileViewController: UITableViewDelegate {
     
     // отслеживаем нажатие по ячейке
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         switch indexPath.section {
         case 0:
             tapPhotos()
         default:
-            tableView.deselectRow(at: indexPath, animated: true)
+            break
         }
     }
     

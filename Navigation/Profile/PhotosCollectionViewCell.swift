@@ -48,4 +48,10 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     func photoId (with photoId: String) {
         photoImage.image = UIImage(named: photoId)
     }
+    
+    // добавляем скругление краев
+    func photoRadius(radius: Int) {
+        photoImage.layer.masksToBounds = true
+        photoImage.layer.cornerRadius = CGFloat(radius)
+    }
 }

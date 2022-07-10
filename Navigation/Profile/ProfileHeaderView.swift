@@ -65,7 +65,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Show status", for: .normal)
-        button.backgroundColor = UIColor(named: "colorSet")
+        button.backgroundColor = UIColor(named: "ColorSet")
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         button.layer.cornerRadius = 10
