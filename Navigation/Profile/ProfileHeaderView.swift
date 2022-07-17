@@ -9,22 +9,51 @@ import UIKit
 
 class ProfileHeaderView: UITableViewHeaderFooterView {
     
+    private var statusText = String()
+    private var avatarCenter = CGPoint()
+    
     // создаем элеметы view
         
     // аватарка
-    let avatarImege: UIImageView = {
+    lazy var avatarImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "avatar")
+        image.backgroundColor = .systemGray6
         image.clipsToBounds = true
         image.layer.cornerRadius = 60
         image.layer.borderWidth = 3
         image.layer.borderColor = UIColor.white.cgColor
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(tapOnAvatar))
+        image.addGestureRecognizer(recognizer)
+        image.isUserInteractionEnabled = true
         return image
     }()
     
+    // фон для открытой аватарки
+    lazy var foneAvatarView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .darkGray
+        view.isHidden = true
+        view.alpha = 0
+        return view
+    }()
+    
+    // кнопка для закрытия аватарки
+    lazy var closeAvatarButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.imageView?.contentMode = .scaleAspectFit
+        button.backgroundColor = .darkGray
+        button.isHidden = true
+        button.setImage(UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(closeAvatar), for: .touchUpInside)
+        return button
+    }()
+    
     // имя пользователя
-    let nameLabel: UILabel = {
+    lazy var nameLabel: UILabel = {
         let lable = UILabel()
         lable.translatesAutoresizingMaskIntoConstraints = false
         lable.text = "Ivan Ivanov"
@@ -34,7 +63,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     }()
     
     // статус пользователя
-    let statusLabel: UILabel = {
+    lazy var statusLabel: UILabel = {
         let lable = UILabel()
         lable.translatesAutoresizingMaskIntoConstraints = false
         lable.text = "Status"
@@ -44,7 +73,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     }()
 
     // поле ввода статуса
-    let statusInputText: UITextField = {
+    lazy var statusInputText: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
         text.placeholder = "Enter text"
@@ -61,7 +90,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     }()
     
     // кнопка ввода статуса
-    let showStatusButton: UIButton = {
+    lazy var showStatusButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Show status", for: .normal)
@@ -77,21 +106,23 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return button
     }()
     
-    private var statusText = String()
-
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-        
         // добавляем элементы view
-        self.addSubview(avatarImege)
         self.addSubview(nameLabel)
         self.addSubview(statusLabel)
         self.addSubview(statusInputText)
         self.addSubview(showStatusButton)
+        self.addSubview(foneAvatarView)
+        self.addSubview(avatarImage)
+        self.addSubview(closeAvatarButton)
         
+        addConstraint()
+    }
+        
+        private func addConstraint() {
+            
         //расставляем элеметы view
         NSLayoutConstraint.activate([
             
@@ -99,25 +130,25 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
             self.heightAnchor.constraint(equalToConstant: 220),
             
             // аватарка
-            avatarImege.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            avatarImege.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            avatarImege.widthAnchor.constraint(equalToConstant: 120),
-            avatarImege.heightAnchor.constraint(equalToConstant: 120),
+            avatarImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            avatarImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            avatarImage.widthAnchor.constraint(equalToConstant: 120),
+            avatarImage.heightAnchor.constraint(equalToConstant: 120),
             
             // имя пользователя
-            nameLabel.leadingAnchor.constraint(equalTo: avatarImege.trailingAnchor, constant: 16),
+            nameLabel.leadingAnchor.constraint(equalTo: avatarImage.trailingAnchor, constant: 16),
             nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             nameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27),
             nameLabel.heightAnchor.constraint(equalToConstant: 20),
             
             // статус пользователя
-            statusLabel.leadingAnchor.constraint(equalTo: avatarImege.trailingAnchor, constant: 16),
+            statusLabel.leadingAnchor.constraint(equalTo: avatarImage.trailingAnchor, constant: 16),
             statusLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             statusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
             statusLabel.heightAnchor.constraint(equalToConstant: 20),
             
             // поле ввода статуса
-            statusInputText.leadingAnchor.constraint(equalTo: avatarImege.trailingAnchor, constant: 16),
+            statusInputText.leadingAnchor.constraint(equalTo: avatarImage.trailingAnchor, constant: 16),
             statusInputText.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             statusInputText.bottomAnchor.constraint(equalTo: showStatusButton.topAnchor, constant: -16),
             statusInputText.heightAnchor.constraint(equalToConstant: 40),
@@ -125,15 +156,71 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
             // кнопка ввода статуса
             showStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             showStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            showStatusButton.topAnchor.constraint(equalTo: avatarImege.bottomAnchor, constant: 16),
+            showStatusButton.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 16),
             showStatusButton.heightAnchor.constraint(equalToConstant: 50),
-        ])        
+            
+            // фон для аватарки
+            foneAvatarView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            foneAvatarView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
+            
+            // кнопка Х
+            closeAvatarButton.topAnchor.constraint(equalTo: self.topAnchor),
+            closeAvatarButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        ])
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+    
+    // нажатие по аватарке
+    @objc func tapOnAvatar() {
+        UIView.animate(withDuration: 0.5,
+                       animations: {
+            self.avatarCenter = self.avatarImage.center
+            self.avatarImage.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
+            self.avatarImage.transform = CGAffineTransform(scaleX: self.contentView.frame.width / self.avatarImage.frame.width,
+                                                           y: self.contentView.frame.width / self.avatarImage.frame.width)
+            self.avatarImage.layer.cornerRadius = 0
+            self.avatarImage.layer.borderWidth = 0
+            self.foneAvatarView.isHidden = false
+            self.foneAvatarView.alpha = 0.8
+            self.contentView.layoutIfNeeded()
+        },
+                       completion: {_ in
+            UIImageView.animate(withDuration: 0.3) {
+                self.closeAvatarButton.isHidden = false
+                self.closeAvatarButton.alpha = 1
+            }
+        })
+    }
+    
+    // нажатие по кнопке "Х"
+    @objc func closeAvatar() {
+        UIImageView.animate(
+            withDuration: 0.3,
+            animations: {
+                self.closeAvatarButton.alpha = 0
+                self.closeAvatarButton.isHidden = true
+                
+            },
+            completion: { _ in
+                UIImageView.animate(withDuration: 0.5,
+                                    animations: {
+                    self.avatarImage.center = self.avatarCenter
+                    self.avatarImage.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    self.avatarImage.layer.cornerRadius = self.avatarImage.frame.width / 2
+                    self.avatarImage.layer.borderWidth = 3
+                    self.foneAvatarView.alpha = 0.0
+                    self.contentView.layoutIfNeeded()
+                },
+                                    completion: { _ in
+                    self.foneAvatarView.isHidden = true
+                })
+            })
+    }
+    
+
     // логика showStatusButton
     @objc func buttonPressed() {
         statusLabel.text = statusText

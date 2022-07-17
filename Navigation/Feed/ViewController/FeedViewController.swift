@@ -10,7 +10,7 @@ import UIKit
 class FeedViewController: UIViewController {
     
     // создаем кнопку 1
-    let oneButton: UIView = {
+    lazy var oneButton: UIView = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("1", for: .normal)
@@ -22,7 +22,7 @@ class FeedViewController: UIViewController {
     }()
 
     // создаем кнопку 2
-    let secondButton: UIView = {
+    lazy var secondButton: UIView = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("2", for: .normal)
@@ -34,7 +34,7 @@ class FeedViewController: UIViewController {
     }()
     
     // создаем stackFeed
-    let stackFeed: UIStackView = {
+    lazy var stackFeed: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical

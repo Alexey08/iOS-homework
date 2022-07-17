@@ -103,6 +103,17 @@ extension ProfileViewController: UITableViewDelegate {
             return nil
         }
     }
+
+    //высота хедера
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
+        
+        switch section {
+        case 0:
+            return UITableView.automaticDimension
+        default:
+            return CGFloat.leastNonzeroMagnitude
+        }
+    }
        
     // высота строк
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
