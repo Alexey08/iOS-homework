@@ -20,8 +20,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-//        contentView.backgroundColor = .red
-        
         // добавляем Image
         contentView.addSubview(photoImage)
 

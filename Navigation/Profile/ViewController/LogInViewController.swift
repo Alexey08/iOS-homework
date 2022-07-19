@@ -10,20 +10,20 @@ import UIKit
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
     // создаем элементы
-    let scrollView: UIScrollView = {
+    lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.isScrollEnabled = true
         return scroll
     }()
     
-    let contentView: UIView = {
+    lazy var contentView: UIView = {
         let content = UIView()
         content.translatesAutoresizingMaskIntoConstraints = false
         return content
     }()
     
-    let logo: UIImageView = {
+    lazy var logo: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "logo")
@@ -31,7 +31,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return image
     }()
     
-    let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -44,7 +44,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return stack
     }()
     
-    let loginText: UITextField = {
+    lazy var loginText: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textColor = .black
@@ -59,7 +59,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return text
     }()
     
-    let passwordText: UITextField = {
+    lazy var passwordText: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textColor = .black
@@ -77,7 +77,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return text
     }()
     
-    var button: UIButton = {
+    lazy var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Log In", for: .normal)
