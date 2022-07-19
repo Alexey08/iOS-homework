@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Post {
+public struct Post {
     var author: String
     var description: String
     var image: String
@@ -15,7 +15,7 @@ struct Post {
     var views: Int
 }
 
-let postArray = [
+public let postArray = [
     Post(author: "Ivan Ivanov",
          description: """
         Antalya \n
