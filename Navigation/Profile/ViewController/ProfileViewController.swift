@@ -20,11 +20,13 @@ class ProfileViewController: UIViewController {
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.indenifier)
         
         // код для работы со схемами
+        /*
         #if DEBUG
         tableView.backgroundColor = .red
         #else
         tableView.backgroundColor = .white
         #endif
+        */
         
         return tableView
     }()
@@ -117,7 +119,7 @@ extension ProfileViewController: UITableViewDelegate {
         
         switch section {
         case 0:
-            return UITableView.automaticDimension
+            return 220
         default:
             return CGFloat.leastNonzeroMagnitude
         }
