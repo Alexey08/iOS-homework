@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
+    
+    // работа с фильтрами для картинок
+    private let imageProcessor  = ImageProcessor()
     
     // добавляем элементы
     private var postTitle: UILabel = {
@@ -56,8 +60,16 @@ class PostTableViewCell: UITableViewCell {
         self.postTitle.text = post.author
         self.postDescription.text = post.description
         self.postImage.image = UIImage(named: post.image)
+        filterPicture(picture: postImage.image!)
         self.postLikes.text = "Likes: \(post.likes)"
         self.postViews.text = "Views: \(post.views)"
+    }
+    
+    // фильтруем картинку с помощью iOSIntPackage
+    public func filterPicture (picture: UIImage) {
+        imageProcessor.processImage(sourceImage: picture, filter: ColorFilter.colorInvert) { filterPicture in
+            postImage.image = filterPicture
+        }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

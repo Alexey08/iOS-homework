@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileHeaderView: UITableViewHeaderFooterView {
     
@@ -13,7 +14,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     private var avatarCenter = CGPoint()
     
     // создаем элеметы view
-        
+    
     // аватарка
     lazy var avatarImage: UIImageView = {
         let image = UIImageView()
@@ -71,7 +72,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         lable.textColor = .gray
         return lable
     }()
-
+    
     // поле ввода статуса
     lazy var statusInputText: UITextField = {
         let text = UITextField()
@@ -120,53 +121,61 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         
         addConstraint()
     }
+    
+    private func addConstraint() {
         
-        private func addConstraint() {
-            
         //расставляем элеметы view
-        NSLayoutConstraint.activate([
-            
-            self.widthAnchor.constraint(equalTo: self.widthAnchor),
-            self.heightAnchor.constraint(equalToConstant: 220),
-            
-            // аватарка
-            avatarImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            avatarImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            avatarImage.widthAnchor.constraint(equalToConstant: 120),
-            avatarImage.heightAnchor.constraint(equalToConstant: 120),
-            
-            // имя пользователя
-            nameLabel.leadingAnchor.constraint(equalTo: avatarImage.trailingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            nameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27),
-            nameLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            // статус пользователя
-            statusLabel.leadingAnchor.constraint(equalTo: avatarImage.trailingAnchor, constant: 16),
-            statusLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            statusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            statusLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            // поле ввода статуса
-            statusInputText.leadingAnchor.constraint(equalTo: avatarImage.trailingAnchor, constant: 16),
-            statusInputText.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            statusInputText.bottomAnchor.constraint(equalTo: showStatusButton.topAnchor, constant: -16),
-            statusInputText.heightAnchor.constraint(equalToConstant: 40),
-                        
-            // кнопка ввода статуса
-            showStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            showStatusButton.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 16),
-            showStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            // фон для аватарки
-            foneAvatarView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-            foneAvatarView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
-            
-            // кнопка Х
-            closeAvatarButton.topAnchor.constraint(equalTo: self.topAnchor),
-            closeAvatarButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-        ])
+        
+        // аватарка
+        avatarImage.snp.makeConstraints { make in
+            make.leading.equalTo(self.snp.leading).offset(16)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(16)
+            make.size.equalTo(CGSize(width: 120, height: 120))
+        }
+        
+        // имя пользователя
+        nameLabel.snp.makeConstraints { make in
+            make.leading.equalTo(avatarImage.snp.trailing).offset(16)
+            make.trailing.equalTo(self.snp.trailing).offset(-16)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(27)
+            make.height.equalTo(20)
+        }
+        
+        // статус пользователя
+        statusLabel.snp.makeConstraints { make in
+            make.leading.equalTo(avatarImage.snp.trailing).offset(16)
+            make.trailing.equalTo(self.snp.trailing).offset(-16)
+            make.top.equalTo(nameLabel.snp.bottom).offset(8)
+            make.height.equalTo(20)
+        }
+        
+        // поле ввода статуса
+        statusInputText.snp.makeConstraints { make in
+            make.leading.equalTo(avatarImage.snp.trailing).offset(16)
+            make.trailing.equalTo(self.snp.trailing).offset(-16)
+            make.bottom.equalTo(showStatusButton.snp.top).offset(-16)
+            make.height.equalTo(40)
+        }
+        
+        // кнопка ввода статуса
+        showStatusButton.snp.makeConstraints { make in
+            make.leading.equalTo(self.snp.leading).offset(16)
+            make.trailing.equalTo(self.snp.trailing).offset(-16)
+            make.top.equalTo(avatarImage.snp.bottom).offset(16)
+            make.height.equalTo(50)
+        }
+        
+        
+        // фон для аватарки
+        foneAvatarView.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        }
+        
+        // кнопка Х
+        closeAvatarButton.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top)
+            make.trailing.equalTo(self.snp.trailing)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -219,8 +228,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
                 })
             })
     }
-    
-
+        
     // логика showStatusButton
     @objc func buttonPressed() {
         statusLabel.text = statusText
