@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StorageService
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
@@ -182,7 +183,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     // логика button
     @objc func buttonPressed() {
-        let profileVC = ProfileViewController()
+        
+        let name = loginText.text ?? "Test"
+        
+        #if DEBUG
+        let userService = TestUserService()
+        #else
+        let userService = CurrentUserService()
+        #endif
+        
+        let profileVC = ProfileViewController(servis: userService, name: name)
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
 }

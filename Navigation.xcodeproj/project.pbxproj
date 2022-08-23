@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6311371D64258D04035D6F3D /* Pods_StorageService_StorageServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80799547F6031923A3D1E806 /* Pods_StorageService_StorageServiceTests.framework */; };
-		74326FCD4A943936762DA0C4 /* Pods_Navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9783EFD16BF765989D9E59 /* Pods_Navigation.framework */; };
-		AB71B53CFFAA0E3400D38624 /* Pods_StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DD53BFEEA4C14CCBE4CFF3 /* Pods_StorageService.framework */; };
 		C403C366288711C800CF2751 /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = C403C365288711C800CF2751 /* StorageService.docc */; };
 		C403C36C288711C800CF2751 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C403C362288711C800CF2751 /* StorageService.framework */; };
 		C403C373288711C800CF2751 /* StorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403C372288711C800CF2751 /* StorageServiceTests.swift */; };
@@ -20,6 +18,7 @@
 		C403C380288711FA00CF2751 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457A09E284BC04B00C65309 /* Post.swift */; };
 		C403C3812887120800CF2751 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457A09E284BC04B00C65309 /* Post.swift */; };
 		C403C3822887120A00CF2751 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C473E1F5286B4D5B00961874 /* Photos.swift */; };
+		C40F181E289AF4D3008E0DF2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F181C289ADB7A008E0DF2 /* User.swift */; };
 		C424399828468A6000200972 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C424399728468A6000200972 /* PostTableViewCell.swift */; };
 		C462D47B27BFF34400AEE561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C462D47A27BFF34400AEE561 /* AppDelegate.swift */; };
 		C462D48427BFF34500AEE561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C462D48327BFF34500AEE561 /* Assets.xcassets */; };
@@ -29,6 +28,10 @@
 		C462D49327C00ACE00AEE561 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C462D49227C00ACE00AEE561 /* PostViewController.swift */; };
 		C473E1F8286B5E1D00961874 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C473E1F7286B5E1D00961874 /* PhotosViewController.swift */; };
 		C473E1FB286B6DD100961874 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C473E1FA286B6DD100961874 /* PhotosCollectionViewCell.swift */; };
+		C4816DA528A2C7BB006D7730 /* Pods_StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DD53BFEEA4C14CCBE4CFF3 /* Pods_StorageService.framework */; };
+		C4816DA628A2C7BB006D7730 /* Pods_StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 73DD53BFEEA4C14CCBE4CFF3 /* Pods_StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C4816DA828A2C918006D7730 /* Pods_Navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9783EFD16BF765989D9E59 /* Pods_Navigation.framework */; };
+		C4816DA928A2C918006D7730 /* Pods_Navigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE9783EFD16BF765989D9E59 /* Pods_Navigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C494846A2845295A00142563 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49484692845295A00142563 /* ProfileHeaderView.swift */; };
 		C495F56227F98068006AB433 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495F56127F98068006AB433 /* GeneralSettings.swift */; };
 		C4A1C49928510CDD00CB5631 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1C49828510CDD00CB5631 /* PhotosTableViewCell.swift */; };
@@ -68,7 +71,19 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C4816DA928A2C918006D7730 /* Pods_Navigation.framework in Embed Frameworks */,
 				C403C378288711C800CF2751 /* StorageService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4816DA728A2C7BB006D7730 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C4816DA628A2C7BB006D7730 /* Pods_StorageService.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +104,7 @@
 		C403C365288711C800CF2751 /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
 		C403C36B288711C800CF2751 /* StorageServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorageServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C403C372288711C800CF2751 /* StorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceTests.swift; sourceTree = "<group>"; };
+		C40F181C289ADB7A008E0DF2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C424399728468A6000200972 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		C457A09E284BC04B00C65309 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		C462D47727BFF34400AEE561 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB71B53CFFAA0E3400D38624 /* Pods_StorageService.framework in Frameworks */,
+				C4816DA528A2C7BB006D7730 /* Pods_StorageService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4A4C200288F0AE4006FC9A3 /* iOSIntPackage in Frameworks */,
+				C4816DA828A2C918006D7730 /* Pods_Navigation.framework in Frameworks */,
 				C403C377288711C800CF2751 /* StorageService.framework in Frameworks */,
-				74326FCD4A943936762DA0C4 /* Pods_Navigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +249,7 @@
 				C462D48527BFF34500AEE561 /* LaunchScreen.storyboard */,
 				C462D48827BFF34500AEE561 /* Info.plist */,
 				C495F56127F98068006AB433 /* GeneralSettings.swift */,
+				C40F181C289ADB7A008E0DF2 /* User.swift */,
 				C41DDE4F27E390E90015C887 /* Feed */,
 				C4308C7C27D13A4500F2A643 /* Profile */,
 			);
@@ -282,6 +299,7 @@
 				C403C35E288711C800CF2751 /* Sources */,
 				C403C35F288711C800CF2751 /* Frameworks */,
 				C403C360288711C800CF2751 /* Resources */,
+				C4816DA728A2C7BB006D7730 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -542,6 +560,7 @@
 				C462D49127BFF4C300AEE561 /* FeedViewController.swift in Sources */,
 				C403C3822887120A00CF2751 /* Photos.swift in Sources */,
 				C4A1C49928510CDD00CB5631 /* PhotosTableViewCell.swift in Sources */,
+				C40F181E289AF4D3008E0DF2 /* User.swift in Sources */,
 				C462D48F27BFF4B300AEE561 /* ProfileViewController.swift in Sources */,
 				C495F56227F98068006AB433 /* GeneralSettings.swift in Sources */,
 				C4D33B7A27F042A2007D9B23 /* LogInViewController.swift in Sources */,
@@ -796,6 +815,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -857,6 +877,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = qwerty.Navigation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
