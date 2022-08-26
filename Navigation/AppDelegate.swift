@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let profileNavC = UINavigationController(rootViewController: profileVC)
         profileNavC.navigationBar.isHidden = true
         
+        // реализация Delegate
+        let loginInspector = LoginInspector()
+        profileVC.loginDelegate = loginInspector
+        
         let feedVC = FeedViewController()
         feedVC.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "newspaper"), selectedImage: UIImage(systemName: "newspaper.fill"))
         let feedNavC = UINavigationController(rootViewController: feedVC)
