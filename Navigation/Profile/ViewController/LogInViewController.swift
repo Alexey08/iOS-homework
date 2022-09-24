@@ -8,8 +8,15 @@
 import UIKit
 import StorageService
 
+protocol LoginViewControllerDelegate {
+    
+    func check (_ login: String, _ pswrd: String) -> Bool
+}
+
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
+    var loginDelegate: LoginViewControllerDelegate!
+        
     // создаем элементы
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -184,15 +191,29 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     // логика button
     @objc func buttonPressed() {
         
-        let name = loginText.text ?? "Test"
+        let loggin = loginText.text ?? ""
+        let password = passwordText.text ?? ""
         
-        #if DEBUG
-        let userService = TestUserService()
-        #else
-        let userService = CurrentUserService()
-        #endif
-        
-        let profileVC = ProfileViewController(servis: userService, name: name)
-        self.navigationController?.pushViewController(profileVC, animated: true)
+        if loginDelegate.check(loggin, password) {
+            
+            let profileVC = ProfileViewController(servis: CurrentUserService(), name: "Ivan")
+            self.navigationController?.pushViewController(profileVC, animated: true)
+            
+        } else {
+            
+            let alertVC = UIAlertController(title: "Error", message: "User not found", preferredStyle: .alert)
+            let alertActionClose = UIAlertAction(title: "Close", style: .destructive)
+                       
+            alertVC.addAction(alertActionClose)
+            self.present(alertVC, animated: true, completion: nil)
+        }
+    }
+}
+
+// реализация Delegate
+struct LoginInspector: LoginViewControllerDelegate{
+    
+    func check(_ login: String, _ pswrd: String) -> Bool {
+        return Checker.shared.check(login, pswrd)
     }
 }

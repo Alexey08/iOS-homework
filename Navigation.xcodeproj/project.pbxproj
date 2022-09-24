@@ -37,6 +37,7 @@
 		C4A1C49928510CDD00CB5631 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1C49828510CDD00CB5631 /* PhotosTableViewCell.swift */; };
 		C4A4C200288F0AE4006FC9A3 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = C4A4C1FF288F0AE4006FC9A3 /* iOSIntPackage */; };
 		C4D33B7A27F042A2007D9B23 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D33B7927F042A2007D9B23 /* LogInViewController.swift */; };
+		C4D5E53128BBC5EE006895CE /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5E53028BBC5EE006895CE /* LoginFactory.swift */; };
 		C4E7719D27CD490300BE86B4 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E7719C27CD490300BE86B4 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		C495F56127F98068006AB433 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		C4A1C49828510CDD00CB5631 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		C4D33B7927F042A2007D9B23 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		C4D5E53028BBC5EE006895CE /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
 		C4E7719C27CD490300BE86B4 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		DE9783EFD16BF765989D9E59 /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -250,6 +252,7 @@
 				C462D48827BFF34500AEE561 /* Info.plist */,
 				C495F56127F98068006AB433 /* GeneralSettings.swift */,
 				C40F181C289ADB7A008E0DF2 /* User.swift */,
+				C4D5E53028BBC5EE006895CE /* LoginFactory.swift */,
 				C41DDE4F27E390E90015C887 /* Feed */,
 				C4308C7C27D13A4500F2A643 /* Profile */,
 			);
@@ -557,6 +560,7 @@
 				C462D49327C00ACE00AEE561 /* PostViewController.swift in Sources */,
 				C462D47B27BFF34400AEE561 /* AppDelegate.swift in Sources */,
 				C403C3812887120800CF2751 /* Post.swift in Sources */,
+				C4D5E53128BBC5EE006895CE /* LoginFactory.swift in Sources */,
 				C462D49127BFF4C300AEE561 /* FeedViewController.swift in Sources */,
 				C403C3822887120A00CF2751 /* Photos.swift in Sources */,
 				C4A1C49928510CDD00CB5631 /* PhotosTableViewCell.swift in Sources */,
