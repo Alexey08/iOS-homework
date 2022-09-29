@@ -7,14 +7,19 @@
 
 import Foundation
 
+// Singleton
 
-class Checker {
+public class Checker {
     
-    private var login = String()
-    private var password = String()
+    private let login = "Ivanov"
+    private let password = "1234"
     
-    var shared = Checker()
+    static let shared = Checker()
     
-    private init() {}   
+    private init() {}
     
+    func check (_ login: String, _ pswrd: String) -> Bool {
+        guard login == self.login && pswrd == self.password else { return false }
+        return true
+     }
 }

@@ -6,8 +6,19 @@
 //
 
 import UIKit
+import StorageService
+
+
+// Delegate
+protocol LoginViewControllerDelegate {
+    
+    func check (login: String, password: String) -> Bool
+}
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
+    
+    // создаем делегата
+    var loginDelegate: LoginViewControllerDelegate!
     
     // создаем элементы
     lazy var scrollView: UIScrollView = {
@@ -182,7 +193,35 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     // логика button
     @objc func buttonPressed() {
-        let profileVC = ProfileViewController()
+        /*
+        let name = loginText.text ?? "Test"
+
+        #if DEBUG
+        let userService = TestUserService()
+        #else
+        let userService = CurrentUserService()
+        #endif
+
+        let profileVC = ProfileViewController(servis: userService, name: name)
+        
         self.navigationController?.pushViewController(profileVC, animated: true)
+        */
+        let login = loginText.text!
+        let password = passwordText.text!
+        let delegate = loginDelegate.check(login: login, password: password)
+        
+        if delegate {
+
+             let profileVC = ProfileViewController(servis: CurrentUserService(), name: "Ivan")
+             self.navigationController?.pushViewController(profileVC, animated: true)
+
+         } else {
+
+             let alertVC = UIAlertController(title: "Error", message: "User not found", preferredStyle: .alert)
+             let alertActionClose = UIAlertAction(title: "Close", style: .destructive)
+
+             alertVC.addAction(alertActionClose)
+             self.present(alertVC, animated: true, completion: nil)
+         }
     }
 }

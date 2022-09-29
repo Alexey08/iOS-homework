@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import StorageService
 
 class ProfileViewController: UIViewController {
+    
+    // для получения данных User
+     private var userService: UserService
+     private var user: User
     
     // создаем таблицу
     private lazy var tableView: UITableView = {
@@ -28,6 +33,17 @@ class ProfileViewController: UIViewController {
         
         return tableView
     }()
+        
+    init (servis: UserService, name: String) {
+        self.userService = servis
+        self.user = userService.userSearch(name: name)!
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +121,7 @@ extension ProfileViewController: UITableViewDelegate {
         
         switch section {
         case 0:
-            let header = ProfileHeaderView()
+            let header = ProfileHeaderView(reuseIdentifier: nil, user: user)
             return header
         default:
             return nil

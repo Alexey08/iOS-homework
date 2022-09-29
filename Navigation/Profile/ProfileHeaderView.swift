@@ -7,8 +7,13 @@
 
 import UIKit
 
+
 class ProfileHeaderView: UITableViewHeaderFooterView {
     
+    // для получения данных User
+     private var user: User
+
+     // для анимации аватарки
     private var statusText = String()
     private var avatarCenter = CGPoint()
     
@@ -18,7 +23,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     lazy var avatarImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "avatar")
+        image.image = UIImage(named: user.avatar ?? "avatar")
         image.backgroundColor = .systemGray6
         image.clipsToBounds = true
         image.layer.cornerRadius = 60
@@ -56,7 +61,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     lazy var nameLabel: UILabel = {
         let lable = UILabel()
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "Ivan Ivanov"
+        lable.text = user.name
         lable.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         lable.textColor = .black
         return lable
@@ -66,7 +71,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     lazy var statusLabel: UILabel = {
         let lable = UILabel()
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "Status"
+        lable.text = user.status
         lable.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         lable.textColor = .gray
         return lable
@@ -106,7 +111,10 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return button
     }()
     
-    override init(reuseIdentifier: String?) {
+    init(reuseIdentifier: String?, user: User) {
+        
+        self.user = user
+        
         super.init(reuseIdentifier: reuseIdentifier)
         
         // добавляем элементы view
@@ -121,6 +129,10 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         addConstraint()
     }
         
+    required init?(coder: NSCoder) {
+         fatalError("init(coder:) has not been implemented")
+     }
+    
         private func addConstraint() {
             
         //расставляем элеметы view
@@ -169,9 +181,6 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         ])
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // нажатие по аватарке
     @objc func tapOnAvatar() {

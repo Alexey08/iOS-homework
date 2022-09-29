@@ -29,6 +29,9 @@
 		C494846A2845295A00142563 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49484692845295A00142563 /* ProfileHeaderView.swift */; };
 		C495F56227F98068006AB433 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495F56127F98068006AB433 /* GeneralSettings.swift */; };
 		C4A1C49928510CDD00CB5631 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1C49828510CDD00CB5631 /* PhotosTableViewCell.swift */; };
+		C4A918BA28DF749600B6A32C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A918B928DF749600B6A32C /* User.swift */; };
+		C4B196A328E4BEAE0088D25B /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B196A228E4BEAE0088D25B /* Checker.swift */; };
+		C4B196A528E4C6130088D25B /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B196A428E4C6130088D25B /* LoginFactory.swift */; };
 		C4D33B7A27F042A2007D9B23 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D33B7927F042A2007D9B23 /* LogInViewController.swift */; };
 		C4E7719D27CD490300BE86B4 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E7719C27CD490300BE86B4 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -93,6 +96,9 @@
 		C49484692845295A00142563 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		C495F56127F98068006AB433 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		C4A1C49828510CDD00CB5631 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
+		C4A918B928DF749600B6A32C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C4B196A228E4BEAE0088D25B /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		C4B196A428E4C6130088D25B /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
 		C4D33B7927F042A2007D9B23 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		C4E7719C27CD490300BE86B4 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				C462D47927BFF34400AEE561 /* Navigation */,
+				C4A918B928DF749600B6A32C /* User.swift */,
+				C4B196A228E4BEAE0088D25B /* Checker.swift */,
+				C4B196A428E4C6130088D25B /* LoginFactory.swift */,
 				C403C363288711C800CF2751 /* StorageService */,
 				C403C371288711C800CF2751 /* StorageServiceTests */,
 				C462D47827BFF34400AEE561 /* Products */,
@@ -383,13 +392,16 @@
 				C462D49327C00ACE00AEE561 /* PostViewController.swift in Sources */,
 				C462D47B27BFF34400AEE561 /* AppDelegate.swift in Sources */,
 				C403C3812887120800CF2751 /* Post.swift in Sources */,
+				C4B196A528E4C6130088D25B /* LoginFactory.swift in Sources */,
 				C462D49127BFF4C300AEE561 /* FeedViewController.swift in Sources */,
 				C403C3822887120A00CF2751 /* Photos.swift in Sources */,
 				C4A1C49928510CDD00CB5631 /* PhotosTableViewCell.swift in Sources */,
+				C4A918BA28DF749600B6A32C /* User.swift in Sources */,
 				C462D48F27BFF4B300AEE561 /* ProfileViewController.swift in Sources */,
 				C495F56227F98068006AB433 /* GeneralSettings.swift in Sources */,
 				C4D33B7A27F042A2007D9B23 /* LogInViewController.swift in Sources */,
 				C4E7719D27CD490300BE86B4 /* InfoViewController.swift in Sources */,
+				C4B196A328E4BEAE0088D25B /* Checker.swift in Sources */,
 				C424399828468A6000200972 /* PostTableViewCell.swift in Sources */,
 				C494846A2845295A00142563 /* ProfileHeaderView.swift in Sources */,
 			);
@@ -578,7 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -633,9 +645,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
