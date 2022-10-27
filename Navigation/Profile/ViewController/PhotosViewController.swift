@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PhotosViewController: UIViewController {
+    
+    // Facad
+    let imagePF = ImagePublisherFacade()
+    
+    var imageArray = [UIImage]()
     
     // константа для отступов
     private let sideIset: CGFloat = 8
@@ -32,6 +38,14 @@ class PhotosViewController: UIViewController {
         
         // добавляем констрайнты
         addConstraint()
+        
+        imagePF.subscribe(self)
+        imagePF.addImagesWithTimer(time: 0.5, repeat: 10, userImages: photosArray)
+    }
+    
+    deinit {
+        imagePF.rechargeImageLibrary()
+        imagePF.removeSubscription(for: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,14 +69,14 @@ extension PhotosViewController: UICollectionViewDataSource {
     
     // кол-во ячеек
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return photosArray.count
+         return imageArray.count
     }
     
     // источник ячеек
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.indenifier, for: indexPath) as! PhotosCollectionViewCell
-        cell.photoId(with: photosArray[indexPath.item])
+        cell.photoId(with: imageArray[indexPath.item])
         return cell
     }
 }
@@ -75,5 +89,14 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
         let width = (collectionView.bounds.width - 3 * sideIset) / 3
         let height = width
         return CGSize(width: width, height: height)
+    }
+}
+
+extension PhotosViewController: ImageLibrarySubscriber {
+    
+    func receive(images: [UIImage]) {
+        
+        imageArray = images
+        photosCollection.reloadData()
     }
 }

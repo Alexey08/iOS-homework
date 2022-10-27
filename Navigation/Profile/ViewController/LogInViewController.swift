@@ -10,7 +10,7 @@ import StorageService
 
 
 // Delegate
-protocol LoginViewControllerDelegate {
+protocol LoginViewControllerDelegate: AnyObject{
     
     func check (login: String, password: String) -> Bool
 }
@@ -18,7 +18,7 @@ protocol LoginViewControllerDelegate {
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
     // создаем делегата
-    var loginDelegate: LoginViewControllerDelegate!
+    weak var loginDelegate: LoginViewControllerDelegate?
     
     // создаем элементы
     lazy var scrollView: UIScrollView = {
@@ -208,7 +208,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         */
         let login = loginText.text!
         let password = passwordText.text!
-        let delegate = loginDelegate.check(login: login, password: password)
+        let delegate = loginDelegate!.check(login: login, password: password)
         
         if delegate {
 

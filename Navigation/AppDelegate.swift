@@ -11,6 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var inspector: LoginInspector?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
                 
@@ -26,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // реализация Delegate
         let loginFactory = MyLoginFactory()
-        profileVC.loginDelegate = loginFactory.makeLoginInspector()
+        inspector = loginFactory.makeLoginInspector()
+        profileVC.loginDelegate = inspector
         
         
         let feedVC = FeedViewController()

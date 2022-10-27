@@ -24,7 +24,7 @@ import Foundation
       }
  }
 
-struct LoginInspector: LoginViewControllerDelegate {
+class LoginInspector: LoginViewControllerDelegate {
 
     func check(login: String, password: String) -> Bool {
         let cheker = Checker.shared

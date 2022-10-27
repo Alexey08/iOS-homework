@@ -43,8 +43,9 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     }
     
     // передаем имя файла для UIImageView
-    func photoId (with photoId: String) {
-        photoImage.image = UIImage(named: photoId)
+    func photoId (with photoId: UIImage) {
+//        photoImage.image = UIImage(named: photoId)
+        photoImage.image = photoId
     }
     
     // добавляем скругление краев

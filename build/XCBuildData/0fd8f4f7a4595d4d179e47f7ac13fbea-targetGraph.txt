@@ -1,0 +1,8 @@
+Target dependency graph (4 targets)
+SnapKit in Pods, no dependencies
+Pods-Navigation in Pods, depends on:
+SnapKit in Pods (explicit)
+Pods-StorageService in Pods, depends on:
+SnapKit in Pods (explicit)
+Pods-StorageService-StorageServiceTests in Pods, depends on:
+SnapKit in Pods (explicit)
